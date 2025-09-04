@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+   <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-56C3Y1EV22"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-56C3Y1EV22');
+  </script>  
+  <meta charset="utf-8" />
+  <title>Bathurst Entrants – Supercar Era</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Data -->
+  <script src="bathurst_data.js"></script>
+  <!-- Highcharts (CDN) -->
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+  <script src="https://code.highcharts.com/themes/adaptive.js"></script>
+  <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+  <!-- Style -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Bathurst in charts</h1>
+
+  <section id="toc">
+    <h2>Table of Contents</h2>
+    <figure class="highcharts-figure">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#entrants">Entrants</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </figure>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <figure class="highcharts-figure">
+      <p>These charts show visualisations of Supercar era data of the Bathurst 1000.</p>
+      <p>This only includes Supercar Bathurst 1000 races for 1997 and 1998. It does not include the touring car races in the equivalent years.</p>
+    </figure>
+  </section>
+
+  <section id="entrants">
+    <h2>Entrants</h2>
+    <figure class="highcharts-figure">
+      <h3>Total vehicle entrants</h3>
+      <div id="totals-container" style="height: 320px; margin-bottom: 16px;"></div>
+      <p>Chart 1 shows the total number of entrants that were listed to drive in the Bathurst of the respective year.</p>
+      <p>Following an increase from 1995 through to the early 2000s, entrants dropped off to average between mid to high 20s.</p>
+      <p>While not covered in this content, the 1995 Bathurst 1000 was the smallest overall number of entrants in the history of Bathurst at the time.</p>
+
+      <h3>Vehicle makes/manufacturers</h3>
+      <div id="container"></div>
+        <p>Chart 2 shows the split between entrants at Bathurst between Ford and Holden/Chevrolet covering the Supercars era. This has commonly been seen as the overarching rivalry between manufacturers.</p>
+            <p>To note:</p>
+            <ul>
+                <li>In 1997, there were three categories of vehicles: Level 1, Special Level 1 and Level 2.
+                <ul>
+                    <li>Level 1 - Full time professional teams that raced in the Supercar series.</li>
+                    <li>Special Level 1 - Part time teams that wish to run on tyres of their choosing.</li>
+                    <li>Level 2 - Part time teams running on a cheaper control tyre.</li>
+                </ul>
+                </li>
+                <li>In 1998 and 1999, there was two categories of vehicles: Outright and Privateer.
+                <ul>
+                    <li>Outright - Full time professional teams that raced in the Supercar series.</li>
+                    <li>Privateer - Part time teams that raced in other competitions at standalone events like Bathurst who wanted to compete in the race.</li>
+                </ul>
+                </li>
+                <li>There were more than two manufacturers competing over a 7 year run:
+                <ul>
+                    <li>From 2013 to 2019, Nissan raced in Supercars.</li>
+                    <li>From 2013 to 2015, Mercedes-AMG raced in Supercars.</li>
+                    <li>From 2014 to 2016, Volvo raced in Supercars.</li>
+                    <li>The colours used for the aforementioned brands reflect approximate team colours from their time in Supercars. This is used due to Nissan, Merceds and Volvo regular branding are predominately greys and do not provide enough visual separation.</li>
+                    <li>As Ford ran nearly half the amount of vehicles compared to Holden/Chevrolet over this period, these additional manufacturers have been added to the Ford side of the chart.</li>
+                </ul>
+                </li>
+                <li>Since 2023, there are no Holden badged vehicles. Chrevolet vehicles are now used in lieu of Holden. This change is reflected in the chart colour.</li>
+            </ul>
+      <h3>Vehicle models</h3>
+      <div id="makes-over-years" class="chart" style="height: 520px;"></div>
+        <p>Chart 3 shows the different make of vehicles used by the manufacturer in any given year.</p>
+        <p>This is intended to give an idea of the relevant makes of vehicles, split by manufacturer, competing against each other over time.</p>
+        <p>Since 2023, there are no Holden badged vehicles. Chrevolet vehicles are now used in lieu of Holden. This change is reflected in the chart colour. Holden/Chevrolet vehicles are listed first to provide spearation between the Chevrolet and Nissan colours in the chart.</p>
+        <p>The last time there were multiple models running at the same time were:
+        <ul>
+            <li>Ford - 2010, BF and FG.</li>
+            <li>Holden/Chevrolet - 2018, VF and ZB.</li>
+        </ul>
+    </figure>
+  </section>
+
+  <section id="results">
+    <h2>Results</h2>
+    <figure class="highcharts-figure">
+      <script>const rows = window.BATHURST_ROWS;</script>
+
+      <h3>Finishes by Year</h3>
+      <div id="finishes-by-year" style="height: 380px; margin: 12px 0;"></div>
+        <p>Chart 4 shows the total number of entrants as per Chart 1, but breaks down how they appear in the results.</p>
+        <p>In no year of the Supercar era have all entrants finished the race: 
+        <ul>
+            <li>The closest was in 2024, with only one vehicle listed as DNF - Did Not Finish.</li>
+            <li>2000 had the largest amount of vehicles finish: 29.</li>
+            <li>1995 had the smallest amount of vehicles finish: 15.</li>
+        </ul>
+        </p>
+        <p>Legend:</p>
+        <ul>
+        <li>Finished - A driver that finished the race.</li>
+        <li>DNS - Did Not Start. A driver who attended but did not attempt to compete in a race, even though they may have competed in practice sessions or qualifying.</li>
+        <li>DSQ - Disqualified. </li>
+        <li>DNF - Did Not Finish. A driver who did not finish the race. Some sanctioning bodies do not classify a driver in the final results if they did not complete a certain number of laps; for example, in Formula One, a driver must complete 90% of the winner's completed laps to be classified as a finisher.</li>
+        <li>NC - Not Classified. A driver who was racing at the end of the race, but did not complete the required distance to be classified.</li>
+        <li>WD - Withdrawn. </li>
+        <li>Retired - Retired. </li>
+        <li>DNQ - Did Not Qualify. A failure to qualify or pre-qualify for a race, most often because the driver was too slow to make it into a limited number of grid positions, or was slower than the 107% rule.</li>
+        <li>DNPQ - Did Not Pre-Qualify. A failure to qualify or pre-qualify for a race, most often because the driver was too slow to make it into a limited number of grid positions, or was slower than the 107% rule.</li>
+        </ul>
+      <div class="section">
+        <h3>Top 3 by Make/Manufacturer</h3>
+        <div id="podium-by-make" class="chart" style="height: 260px;"></div>
+          <p>Chart 5 shows the make that appeared on the podium for the relevant Bathurst race.</p>
+          <ul>
+            <li>Holden/Chrevolet has 23 wins compared to Ford with 7.</li>
+            <li>Holden/Chevrolet have placed 2nd in 18 races, compared to Ford with 11.
+            <ul>
+                <li>Where additional manufacturers raced in the series, only Nissan were able to finish on the podium once, placing 2nd in 2014.</li>
+            </ul>
+            </li>
+            <li>Holden/Chevrolet have placed 3rd in 18 races, compared to Ford with 12.</li>
+            <li>Ford has clean swept podium positions once in 2007.</li>
+            <li>Holden/Chrevolet have clean swept podium positions in multiple years:
+            <ul>
+                <li>1999</li>
+                <li>2002</li>
+                <li>2009</li>
+                <li>2010</li>
+                <li>2011</li>
+                <li>2016</li>
+                <li>2024</li>
+            </ul>
+            </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>Overall race time</h3>
+        <div id="race-time-total" class="chart"></div>
+      </div>
+        <p>Chart 6 shows the overall race time, which is measured as the start of the race to the finish of the race winner.</p>
+        <p>The intent was to show whether finsih times are lowering with new vehicles and driver performance.</p>
+        <p>Factors such as weather, delays, accidents and issues surrounding these types of situations show anomalies. Race times over 7 hours are:
+            <ul>
+            <li>1996</li>
+            <li>2000</li>
+            <li>2014</li>
+            <li>2017</li>
+            </ul>    
+        </p>
+        <p>The fastest race time in Supercars, was 2024, which is also the only race under 6 hours.</p>
+        <p>Overall, the difference between the fastest and slowest Supercars Bathurst 1000 runnings are just over an hour.</p>
+    </figure>
+  </section>
+
+  <section id="sources">
+    <h2>Sources</h2>
+    <figure class="highcharts-figure">
+      <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Glossary_of_motorsport_terms">Glossary of motorsport terms</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/107%25_rule" target="_blank">107% rule</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/1997_Primus_1000_Classic" target="_blank" title="1997 Primus 1000 Classic">1997</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/1998_FAI_1000" target="_blank" title="1998 FAI 1000">1998</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/1999_FAI_1000" target="_blank" title="1999 FAI 1000">1999</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2000_Bathurst_1000" target="_blank" title="2000 Bathurst 1000">2000</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2001_Bathurst_1000" target="_blank" title="2001 Bathurst 1000">2001</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2002_Bathurst_1000" target="_blank" title="2002 Bathurst 1000">2002</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2003_Bathurst_1000" target="_blank" title="2003 Bathurst 1000">2003</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2004_Bathurst_1000" target="_blank" title="2004 Bathurst 1000">2004</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2005_Bathurst_1000" target="_blank" title="2005 Bathurst 1000">2005</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2006_Bathurst_1000" target="_blank" title="2006 Bathurst 1000">2006</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2007_Bathurst_1000" target="_blank" title="2007 Bathurst 1000">2007</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2008_Bathurst_1000" target="_blank" title="2008 Bathurst 1000">2008</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2009_Bathurst_1000" target="_blank" title="2009 Bathurst 1000">2009</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2010_Bathurst_1000" target="_blank" title="2010 Bathurst 1000">2010</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2011_Bathurst_1000" target="_blank" title="2011 Bathurst 1000">2011</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2012_Bathurst_1000" target="_blank" title="2012 Bathurst 1000">2012</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2013_Bathurst_1000" target="_blank" title="2013 Bathurst 1000">2013</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2014_Bathurst_1000" target="_blank" title="2014 Bathurst 1000">2014</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2015_Bathurst_1000" target="_blank" title="2015 Bathurst 1000">2015</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2016_Bathurst_1000" target="_blank" title="2016 Bathurst 1000">2016</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2017_Bathurst_1000" target="_blank" title="2017 Bathurst 1000">2017</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2019_Bathurst_1000" target="_blank" title="2019 Bathurst 1000">2019</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2020_Bathurst_1000" target="_blank" title="2020 Bathurst 1000">2020</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2021_Bathurst_1000" target="_blank" title="2021 Bathurst 1000">2021</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2022_Bathurst_1000" target="_blank" title="2022 Bathurst 1000">2022</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2023_Bathurst_1000" target="_blank" title="2023 Bathurst 1000">2023</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/2024_Bathurst_1000" target="_blank" title="2024 Bathurst 1000">2024</a></li>
+      </ul>
+    </figure>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
