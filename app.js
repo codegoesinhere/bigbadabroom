@@ -28,17 +28,17 @@ const LETTER_TO_BRAND = { H: 'Holden', F: 'Ford', N: 'Nissan', C: 'Chevrolet' };
 const categories = [
   '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
   '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
-  '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024'
+  '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024', '2025'
 ];
 const idxOf = y => categories.indexOf(String(y));
 
 // Base Ford (negative/left) and GM (positive/right)
 const fordVals = [
   -8,-12,-6,-11,-12,-23,-21,-21,-19,-16,-16,-15,-16,-13,-13,-11,-11,-11,-6,-7,
-  -6,-6,-6,-7,-6,-8,-8,-9,-13,-10
+  -6,-6,-6,-7,-6,-8,-8,-9,-13,-10, -11
 ];
 const gmVals = [
-  24,24,9,16,16,33,20,19,21,19,18,16,15,16,19,20,18,18,16,11,13,14,16,15,16,17,17,19,15,16
+  24,24,9,16,16,33,20,19,21,19,18,16,15,16,19,20,18,18,16,11,13,14,16,15,16,17,17,19,15,16,16
 ];
 
 // Extra makes on Ford side (negative)
@@ -276,8 +276,8 @@ function renderDataCharts(rows) {
   // 4) Model usage heatmap
   const ORDERED_MODELS = {
     Holden:  ['VL','VP','VR','VS','VT','VX','VY','VZ','VE','VF','ZB'],
-    Chevrolet:['Mk6'],
-    Ford:    ['EB','EF','EL','AU','BA','BF','FG','FG X','GT','S550'],
+    Chevrolet:['Mk6','ZL1'],
+    Ford:    ['EB','EF','EL','AU','BA','BF','FG','FG X','GT','S550','S650'],
     Nissan:  ['L33'],
     Mercedes:['E63'],
     Volvo:   ['S60']
