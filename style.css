@@ -46,3 +46,16 @@ a:hover { text-decoration: underline; }
   .highcharts-figure { max-width: 95%; }
   h2 {margin-left: 1rem;}
 }
+
+/* Floating bottom-centred navigation */
+body { padding-bottom: 76px; }
+html { scroll-behavior: smooth; scroll-padding-top: 16px; }
+.floating-navigation { position: fixed; z-index: 9999; bottom: max(16px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); display: flex; gap: 10px; align-items: center; }
+.floating-menu-wrap { position: relative; }
+.floating-nav-button { cursor: pointer; border: 1px solid #777; border-radius: 999px; padding: 11px 17px; background: #252525; color: #fff; font: inherit; font-size: 14px; white-space: nowrap; box-shadow: 0 3px 12px #0004; }
+.floating-nav-button:hover, .floating-nav-button:focus-visible { background: #444; }
+.floating-menu-panel { position: absolute; bottom: calc(100% + 10px); left: 0; width: min(310px, calc(100vw - 30px)); max-height: min(65vh, 500px); overflow-y: auto; background: #252525; color: #fff; border: 1px solid #777; border-radius: 12px; padding: 8px; box-shadow: 0 6px 24px #0006; }
+.floating-menu-panel[hidden] { display: none; }
+.floating-menu-panel a, .floating-menu-panel a:visited { display: block; padding: 9px 11px; border-radius: 6px; color: #fff; text-decoration: none; }
+.floating-menu-panel a:hover, .floating-menu-panel a:focus-visible { background: #484848; }
+.floating-menu-subitem { padding-left: 25px !important; font-size: .92em; }

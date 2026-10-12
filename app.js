@@ -339,3 +339,33 @@ function init() {
   renderDataCharts(rows);
 }
 init();
+
+// Floating navigation: build links from page headings and existing anchors.
+function initFloatingNavigation() {
+  const nav = document.createElement('div');
+  nav.className = 'floating-navigation';
+  nav.innerHTML = `<div class="floating-menu-wrap"><button type="button" class="floating-nav-button" id="floating-menu-button" aria-expanded="false" aria-controls="floating-menu-panel" aria-label="Open page menu">☰ Menu</button><nav id="floating-menu-panel" class="floating-menu-panel" aria-label="Page sections" hidden></nav></div><button type="button" class="floating-nav-button" id="floating-top-button" aria-label="Back to top">↑ Top</button>`;
+  document.body.appendChild(nav);
+  const panel = nav.querySelector('#floating-menu-panel');
+  const menuButton = nav.querySelector('#floating-menu-button');
+  const slug = text => text.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
+  const headings = [...document.querySelectorAll('main h2, main h3, body > section h2, body > section h3')];
+  headings.forEach((heading, index) => {
+    const section = heading.closest('section[id]');
+    if (!heading.id && heading.tagName === 'H2' && section) heading.id = section.id;
+    if (!heading.id) heading.id = `heading-${slug(heading.textContent) || index}`;
+    const a = document.createElement('a');
+    a.href = `#${heading.id}`;
+    a.textContent = heading.textContent.trim();
+    if (heading.tagName === 'H3') a.className = 'floating-menu-subitem';
+    a.addEventListener('click', () => { panel.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); });
+    panel.appendChild(a);
+  });
+  menuButton.addEventListener('click', () => { panel.hidden = !panel.hidden; menuButton.setAttribute('aria-expanded', String(!panel.hidden)); });
+  nav.querySelector('#floating-top-button').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  document.addEventListener('click', event => {
+    if (!nav.contains(event.target)) { panel.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); }
+  });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape') { panel.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); } });
+}
+initFloatingNavigation();
