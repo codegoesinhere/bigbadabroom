@@ -187,6 +187,21 @@ function renderDataCharts(rows) {
 
   // 2) Race Time (Total)
   const totalSecs = years.map(y => byYear[y] ? hmsToSeconds(byYear[y].Time) : null);
+  const validTimes = totalSecs.filter(Number.isFinite);
+  const highestTime = Math.max(...validTimes);
+  const lowestTime = Math.min(...validTimes);
+  const raceTimePoints = totalSecs.map(seconds => ({
+    y: seconds,
+    dataLabels: seconds === highestTime || seconds === lowestTime ? {
+      enabled: true,
+      format: formatHMS(seconds),
+      y: seconds === highestTime ? -12 : 22,
+      verticalAlign: seconds === highestTime ? 'bottom' : 'top',
+      crop: false,
+      overflow: 'allow',
+      style: { fontWeight: 'bold', textOutline: '2px contrast' }
+    } : { enabled: false }
+  }));
   Highcharts.chart('race-time-total', {
     chart: { type: 'line' },
     title: { text: 'Chart 6: Winners Race Time' },
@@ -201,7 +216,7 @@ function renderDataCharts(rows) {
     },
     plotOptions: { series: { marker: { enabled: true, radius: 3 } } },
     legend: false,
-    series: [{ name: 'Total Time', data: totalSecs }]
+    series: [{ name: 'Total Time', data: raceTimePoints }]
   });
 
   // 3) Podium heatmap (1st at top)
