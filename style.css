@@ -36,7 +36,13 @@
 .highcharts-description { margin: 0.3rem 10px; }
 h1 { text-align: center; }
 h2, h3 { margin-top: 2.5rem }
-h2 { margin-left: 2rem; color: hotpink;}
+h2 { margin-left: 2rem; color: hotpink; display: flex; align-items: center; gap: 0.75rem; }
+h2::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: hotpink;
+}
 a, a:visited { color: aqua; text-decoration: none; }
 a:hover { text-decoration: underline; }
 @media (prefers-color-scheme: dark) {
