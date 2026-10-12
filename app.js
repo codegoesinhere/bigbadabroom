@@ -50,13 +50,13 @@ const toyotaVals      = Array(categories.length).fill(0);
 const fordNonSCVals   = Array(categories.length).fill(0);
 const holdenNonSCVals = Array(categories.length).fill(0);
 
-// Nissan (2013–2019), Mercedes (2013–2015), Volvo (2014–2016)
+// Nissan (2013–2019), Mercedes (2013–2015), Volvo (2014–2016), Toyota (2026)
 [2013,2014,2015,2016,2017,2018,2019].forEach((y, i) => {
   nissanVals[idxOf(y)] = [-4,-4,-4,-5,-4,-4,-4][i];
 });
 [2013,2014,2015].forEach((y, i) => { mercedesVals[idxOf(y)] = [-3,-2,-2][i]; });
 [2014,2015,2016].forEach((y, i) => { volvoVals[idxOf(y)]    = [-2,-2,-2][i]; });
-[2026].forEach((y, i) => { toyotaVals[idxOf(y)]    = [-5][i]; });
+[2026].forEach((y, i) => { toyotaVals[idxOf(y)]    = [5][i]; });
 
 // Privateer 1998–1999
 fordNonSCVals[idxOf(1998)]   = -4;
@@ -78,9 +78,9 @@ const pin = arr => arr.map((y, i) => ({ x: i, y }));
 
 // Totals (purely from the arrays above)
 const leftExtrasAbsAt = i =>
-  Math.abs(nissanVals[i]) + Math.abs(mercedesVals[i]) + Math.abs(volvoVals[i]) + Math.abs(toyotaVals[i]) +
+  Math.abs(nissanVals[i]) + Math.abs(mercedesVals[i]) + Math.abs(volvoVals[i]) +
   Math.abs(fordNonSCVals[i]) + Math.abs(fordSL1_1997[i]) + Math.abs(fordL2_1997[i]);
-const rightExtrasAt = i => holdenNonSCVals[i] + holdenSL1_1997[i] + holdenL2_1997[i];
+const rightExtrasAt = i => holdenNonSCVals[i] + holdenSL1_1997[i] + holdenL2_1997[i] + Math.abs(toyotaVals[i]);
 const totals = fordVals.map((f, i) =>
   Math.abs(f) + gmVals[i] + leftExtrasAbsAt(i) + rightExtrasAt(i)
 );
