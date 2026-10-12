@@ -21,30 +21,32 @@ const BRAND = {
   Chevrolet: '#FFB612',
   Nissan: '#FFE01A',
   Mercedes: '#C0C0C0',
-  Volvo: '#00B7EB'
+  Volvo: '#00B7EB',
+  Toyota: '#EB0A1E'
 };
-const LETTER_TO_BRAND = { H: 'Holden', F: 'Ford', N: 'Nissan', C: 'Chevrolet' };
+const LETTER_TO_BRAND = { H: 'Holden', F: 'Ford', N: 'Nissan', C: 'Chevrolet', T: 'Toyota', E: 'Mercedes', V: 'Volvo' };
 
 const categories = [
   '1995','1996','1997','1998','1999','2000','2001','2002','2003','2004',
   '2005','2006','2007','2008','2009','2010','2011','2012','2013','2014',
-  '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024', '2025'
+  '2015','2016','2017','2018','2019','2020','2021','2022','2023','2024', '2025', '2026'
 ];
 const idxOf = y => categories.indexOf(String(y));
 
 // Base Ford (negative/left) and GM (positive/right)
 const fordVals = [
   -8,-12,-6,-11,-12,-23,-21,-21,-19,-16,-16,-15,-16,-13,-13,-11,-11,-11,-6,-7,
-  -6,-6,-6,-7,-6,-8,-8,-9,-13,-10, -11
+  -6,-6,-6,-7,-6,-8,-8,-9,-13,-10,-11,-11
 ];
 const gmVals = [
-  24,24,9,16,16,33,20,19,21,19,18,16,15,16,19,20,18,18,16,11,13,14,16,15,16,17,17,19,15,16,16
+  24,24,9,16,16,33,20,19,21,19,18,16,15,16,19,20,18,18,16,11,13,14,16,15,16,17,17,19,15,16,16,10
 ];
 
 // Extra makes on Ford side (negative)
 const nissanVals      = Array(categories.length).fill(0);
 const mercedesVals    = Array(categories.length).fill(0);
 const volvoVals       = Array(categories.length).fill(0);
+const toyotaVals      = Array(categories.length).fill(0);
 const fordNonSCVals   = Array(categories.length).fill(0);
 const holdenNonSCVals = Array(categories.length).fill(0);
 
@@ -54,6 +56,7 @@ const holdenNonSCVals = Array(categories.length).fill(0);
 });
 [2013,2014,2015].forEach((y, i) => { mercedesVals[idxOf(y)] = [-3,-2,-2][i]; });
 [2014,2015,2016].forEach((y, i) => { volvoVals[idxOf(y)]    = [-2,-2,-2][i]; });
+[2026].forEach((y, i) => { toyotaVals[idxOf(y)]    = [-5][i]; });
 
 // Privateer 1998–1999
 fordNonSCVals[idxOf(1998)]   = -4;
@@ -280,7 +283,8 @@ function renderDataCharts(rows) {
     Ford:    ['EB','EF','EL','AU','BA','BF','FG','FG X','GT','S550','S650'],
     Nissan:  ['L33'],
     Mercedes:['E63'],
-    Volvo:   ['S60']
+    Volvo:   ['S60'],
+    Toyota:  ['GR Supra']
   };
   const presentModels = [];
   Object.entries(ORDERED_MODELS).forEach(([make, list]) => {

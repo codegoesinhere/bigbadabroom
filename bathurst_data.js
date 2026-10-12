@@ -29,5 +29,6 @@ window.BATHURST_ROWS = [
   {"Year": 2022,"Time": "06:41:53.72","1": "H","2": "H","3": "F","Finished": 22,"DNS": 0,"DSQ": 6,"DNF": 0,"NC": 0,"WD": 0,"Retired": 0,"DNQ": 0,"DNPQ": 0,"ZB": 15,"S550": 9},
   {"Year": 2023,"Time": "06:07:07.50","1": "C","2": "C","3": "F","Finished": 24,"DNS": 0,"DSQ": 0,"DNF": 4,"NC": 0,"WD": 0,"Retired": 0,"DNQ": 0,"DNPQ": 0,"Mk6": 15,"S550": 13},
   {"Year": 2024,"Time": "05:58:03.06","1": "C","2": "C","3": "C","Finished": 25,"DNS": 0,"DSQ": 0,"DNF": 1,"NC": 0,"WD": 0,"Retired": 0,"DNQ": 0,"DNPQ": 0,"Mk6": 16,"S550": 10},
-  {"Year": 2025,"Time": "06:52:14.94","1": "F","2": "C","3": "C","Finished": 21,"DNS": 0,"DSQ": 0,"DNF": 0,"NC": 0,"WD": 0,"Retired": 6,"DNQ": 0,"DNPQ": 0,"ZL1": 16, "S650": 11}
+  {"Year": 2025,"Time": "06:52:14.94","1": "F","2": "C","3": "C","Finished": 21,"DNS": 0,"DSQ": 0,"DNF": 0,"NC": 0,"WD": 0,"Retired": 6,"DNQ": 0,"DNPQ": 0,"ZL1": 16, "S650": 11},
+  {"Year": 2026,"Time": "05:54:04.75","1": "F","2": "F","3": "C","Finished": 24,"DNS": 0,"DSQ": 0,"DNF": 0,"NC": 0,"WD": 0,"Retired": 2,"DNQ": 0,"DNPQ": 0,"ZL1": 10, "S650": 11}
 ];
