@@ -140,7 +140,6 @@ function renderEntrantsCharts() {
       { name: 'Nissan',   data: pin(nissanVals),   color: '#FFE01A', legendIndex: 2 },
       { name: 'Mercedes', data: pin(mercedesVals), color: '#C0C0C0', legendIndex: 3 },
       { name: 'Volvo',    data: pin(volvoVals),    color: '#00B7EB', legendIndex: 4 },
-      { name: 'Toyota',   data: pin(toyotaVals),   color: '#EB0A1E', legendIndex: 4 },
 
       {
         name: 'Holden → Chevrolet',
@@ -152,7 +151,9 @@ function renderEntrantsCharts() {
       },
       { name: 'Holden — Special Level 1', data: pin(holdenSL1_1997), color: '#E04557', legendIndex: 6 },
       { name: 'Holden — Level 2',        data: pin(holdenL2_1997),  color: '#F59AAA', legendIndex: 8 },
-      { name: 'Holden (Privateer)',      data: pin(holdenNonSCVals), color: '#e55864', legendIndex: 10 }
+      { name: 'Holden (Privateer)',      data: pin(holdenNonSCVals), color: '#e55864', legendIndex: 10 },
+      // Last positive stack series: Toyota appears beyond Chevrolet in 2026.
+      { name: 'Toyota', data: pin(toyotaVals), color: '#EB0A1E', legendIndex: 4 }
     ]
   });
 }
@@ -347,6 +348,11 @@ function initFloatingNavigation() {
   nav.innerHTML = `<div class="floating-menu-wrap"><button type="button" class="floating-nav-button" id="floating-menu-button" aria-expanded="false" aria-controls="floating-menu-panel" aria-label="Open page menu">☰ Menu</button><nav id="floating-menu-panel" class="floating-menu-panel" aria-label="Page sections" hidden></nav></div><button type="button" class="floating-nav-button" id="floating-top-button" aria-label="Back to top">↑ Top</button>`;
   document.body.appendChild(nav);
   const panel = nav.querySelector('#floating-menu-panel');
+  const updateVisibility = () => {
+    const visible = window.scrollY > 120;
+    nav.classList.toggle('is-visible', visible);
+    if (!visible) { panel.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); }
+  };
   const menuButton = nav.querySelector('#floating-menu-button');
   const slug = text => text.toLowerCase().trim().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-');
   const headings = [...document.querySelectorAll('main h2, main h3, body > section h2, body > section h3')];
@@ -361,6 +367,8 @@ function initFloatingNavigation() {
     a.addEventListener('click', () => { panel.hidden = true; menuButton.setAttribute('aria-expanded', 'false'); });
     panel.appendChild(a);
   });
+  window.addEventListener('scroll', updateVisibility, { passive: true });
+  updateVisibility();
   menuButton.addEventListener('click', () => { panel.hidden = !panel.hidden; menuButton.setAttribute('aria-expanded', String(!panel.hidden)); });
   nav.querySelector('#floating-top-button').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   document.addEventListener('click', event => {

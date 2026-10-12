@@ -59,3 +59,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 16px; }
 .floating-menu-panel a, .floating-menu-panel a:visited { display: block; padding: 9px 11px; border-radius: 6px; color: #fff; text-decoration: none; }
 .floating-menu-panel a:hover, .floating-menu-panel a:focus-visible { background: #484848; }
 .floating-menu-subitem { padding-left: 25px !important; font-size: .92em; }
+
+/* Hide at page top; fade in after scrolling. */
+.floating-navigation { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 220ms ease, visibility 220ms ease; }
+.floating-navigation.is-visible { opacity: 1; visibility: visible; pointer-events: auto; }
