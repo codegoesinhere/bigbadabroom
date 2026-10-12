@@ -78,7 +78,7 @@ const pin = arr => arr.map((y, i) => ({ x: i, y }));
 
 // Totals (purely from the arrays above)
 const leftExtrasAbsAt = i =>
-  Math.abs(nissanVals[i]) + Math.abs(mercedesVals[i]) + Math.abs(volvoVals[i]) +
+  Math.abs(nissanVals[i]) + Math.abs(mercedesVals[i]) + Math.abs(volvoVals[i]) + Math.abs(toyotaVals[i]) +
   Math.abs(fordNonSCVals[i]) + Math.abs(fordSL1_1997[i]) + Math.abs(fordL2_1997[i]);
 const rightExtrasAt = i => holdenNonSCVals[i] + holdenSL1_1997[i] + holdenL2_1997[i];
 const totals = fordVals.map((f, i) =>
@@ -138,6 +138,8 @@ function renderEntrantsCharts() {
       { name: 'Nissan',   data: pin(nissanVals),   color: '#FFE01A', legendIndex: 2 },
       { name: 'Mercedes', data: pin(mercedesVals), color: '#C0C0C0', legendIndex: 3 },
       { name: 'Volvo',    data: pin(volvoVals),    color: '#00B7EB', legendIndex: 4 },
+      { name: 'Toyota',   data: pin(toyotaVals),   color: '#EB0A1E', legendIndex: 4 },
+
       {
         name: 'Holden → Chevrolet',
         data: pin(gmVals),
